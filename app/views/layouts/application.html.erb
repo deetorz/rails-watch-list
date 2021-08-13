@@ -13,6 +13,24 @@
   </head>
 
   <body>
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <%= link_to "/lists", class: "navbar-brand" do %>
+          <%# <%= image_tag "https://i.pinimg.com/736x/0c/32/97/0c3297f3516a415219c7e89e16a4a3d2.jpg" %>
+          <h2 id='nav-header'>The 656 Watchlist</h2>
+      <% end %>
+
+      <div>
+        <%= link_to 'Your lists', lists_path, class: 'btn-flat' %>
+        <%= link_to 'Add a new list', new_list_path, class: 'btn-flat' %>
+      </div>
+    </div>
+
+
+
+
+
+
+
     <%= yield %>
   </body>
 </html>

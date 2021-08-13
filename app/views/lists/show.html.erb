@@ -1,0 +1,26 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://wallpaperaccess.com/full/3658604.jpg);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+<div class="container position-right mt-3">
+  <%= link_to 'Add a movie', "/lists/#{@list.id}/bookmarks/new", class: 'btn-flat' %>
+</div>
+
+<div class="container my-3">
+  <div class="cards">
+    <% @list.movies.each do |movie| %>
+      <div class="card-movie">
+        <img src="<%= movie.poster_url %>" alt="">
+        <div class="card-movie-infos">
+          <div class='container'>
+            <h2><%= movie.title %></h2>
+            <p><%= movie.overview %></p>
+          </div>
+          <h2 class="card-movie-infos"><i class="fas fa-star" style="color: yellow"></i><%= movie.rating %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

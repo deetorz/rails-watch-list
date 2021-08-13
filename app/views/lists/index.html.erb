@@ -1,0 +1,15 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://wallpaperaccess.com/full/3658604.jpg);">
+  <div class="container">
+    <h1>Movie Lists</h1>
+    <p>Watch something good recently? Need something new to watch? Check out one of our movie lists!</p>
+  </div>
+</div>
+
+
+<div class='container mt-4'>
+  <div class='cards'>
+    <% @lists.each do |list| %>
+      <div class='card-title'><%= link_to "#{truncate(list.name)}", "lists/#{list.id}" %></div>
+    <% end %>
+  </div>
+</div>
