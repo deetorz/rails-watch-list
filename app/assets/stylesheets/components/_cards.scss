@@ -5,6 +5,7 @@
 }
 
 .card-title {
+  position: relative;
   background-size: cover;
   background-position: center;
   height: 180px;
@@ -21,6 +22,12 @@
     color: white;
     text-decoration: none;
   }
+}
+.card-title-delete {
+  padding: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 
