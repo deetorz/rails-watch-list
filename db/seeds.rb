@@ -1,21 +1,23 @@
 require 'open-uri'
 
-url = 'http://tmdb.lewagon.com/movie/popular'
+urls = ['http://tmdb.lewagon.com/movie/popular', 'http://tmdb.lewagon.com/movie/top_rated']
 
-movie_data = URI.open(url).read
-data = JSON.parse(movie_data)
-movies = data['results']
+urls.each do |url|
+  movie_data = URI.open(url).read
+  data = JSON.parse(movie_data)
+  movies = data['results']
 
-puts 'Cleaning the db...'
-Movie.destroy_all
+  puts 'Cleaning the db...'
+  Movie.destroy_all
 
-puts 'Creating movies...'
-movies.each do |movie|
-  Movie.create!(
-    title: movie['original_title'],
-    overview: movie['overview'],
-    rating: movie['vote_average'],
-    poster_url: "https://image.tmdb.org/t/p/original#{movie['poster_path']}"
-  )
+  puts 'Creating movies...'
+  movies.each do |movie|
+    Movie.create!(
+      title: movie['original_title'],
+      overview: movie['overview'],
+      rating: movie['vote_average'],
+      poster_url: "https://image.tmdb.org/t/p/original#{movie['poster_path']}"
+    )
+  end
 end
 puts "Created #{Movie.count} movies."
