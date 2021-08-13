@@ -10,15 +10,16 @@
 
 <div class="container my-3">
   <div class="cards">
-    <% @list.movies.each do |movie| %>
+    <% @list.bookmarks.each do |bookmark| %>
       <div class="card-movie">
-        <img src="<%= movie.poster_url %>" alt="">
+        <img src="<%= bookmark.movie.poster_url %>" alt="">
         <div class="card-movie-infos">
           <div class='container'>
-            <h2><%= movie.title %></h2>
-            <p><%= movie.overview %></p>
+            <h2><%= bookmark.movie.title %></h2>
+            <p><%= bookmark.movie.overview %></p>
           </div>
-          <h2 class="card-movie-infos"><i class="fas fa-star" style="color: yellow"></i><%= movie.rating %></h2>
+          <h2 class="card-movie-infos"><i class="fas fa-star" style="color: yellow"></i><%= bookmark.movie.rating %></h2>
+          <div class="card-delete"><%= link_to '', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?'}, class: "fas fa-trash-alt" %></div>
         </div>
       </div>
     <% end %>

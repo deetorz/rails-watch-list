@@ -23,18 +23,22 @@
     text-decoration: none;
   }
 }
-.card-title-delete {
+
+.card-delete {
   padding: 5px;
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
-
 .card-movie {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+   a {
+    color: black;
+    text-decoration: none;
+  }
 }
 
 .card-movie > img {
