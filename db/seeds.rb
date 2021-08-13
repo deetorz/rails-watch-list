@@ -2,14 +2,15 @@ require 'open-uri'
 
 urls = ['http://tmdb.lewagon.com/movie/popular', 'http://tmdb.lewagon.com/movie/top_rated']
 
+puts 'Cleaning the db...'
+Bookmark.destroy_all
+Movie.destroy_all
+
 urls.each do |url|
   movie_data = URI.open(url).read
   data = JSON.parse(movie_data)
   movies = data['results']
 
-  puts 'Cleaning the db...'
-  Bookmark.destroy_all
-  Movie.destroy_all
 
   puts 'Creating movies...'
   movies.each do |movie|
