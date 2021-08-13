@@ -8,6 +8,7 @@ urls.each do |url|
   movies = data['results']
 
   puts 'Cleaning the db...'
+  Bookmark.destroy_all
   Movie.destroy_all
 
   puts 'Creating movies...'
