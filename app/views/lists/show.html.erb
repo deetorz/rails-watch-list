@@ -18,8 +18,8 @@
             <h2><%= bookmark.movie.title %></h2>
             <p><%= bookmark.movie.overview %></p>
           </div>
-          <h2 class="card-movie-infos"><i class="fas fa-star" style="color: yellow"></i><%= bookmark.movie.rating %></h2>
           <div class="card-delete"><%= link_to '', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?'}, class: "fas fa-trash-alt" %></div>
+          <div class="card-rating"><i class="fas fa-star" style="color: yellow"></i><%= bookmark.movie.rating %></div>
         </div>
       </div>
     <% end %>
