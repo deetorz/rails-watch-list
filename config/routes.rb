@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get '/', to: 'lists#index', as: 'lists'
-  resources :lists, only: %i[index new create destroy show] do
+  # get '/', to: 'lists#index', as: 'lists'
+  root to: 'lists#index'
+  resources :lists, only: %i[new create destroy show] do
     resources :bookmarks, only: %i[new create]
   end
 
